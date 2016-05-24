@@ -2,12 +2,12 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>
-        This is a personal website!
-    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This is a personal website!</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
+    <link href="css/phone-main.css" media="screen and (min-width: 500px)" rel="stylesheet">
     <script src="js/jquery-1.12.4.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
   </head>
@@ -62,7 +62,17 @@
         </div>
     </div>
 
+    <!-- This is the main body -->
     <div class="container">
+
+      <nav></nav>
+
+      <a id="menu">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M2 6h20v3H2zm0 5h20v3H2zm0 5h20v3H2z"/>
+        </svg>
+      </a>
+
       <div class="row">
         <div class="col-md-6">
           <img src="https://placekitten.com/150/150" alt="Website logo">

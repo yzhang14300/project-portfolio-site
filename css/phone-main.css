@@ -1,0 +1,12 @@
+*{
+  #border-style: solid;
+  #border-width: thin;
+}
+
+.container {
+  max-width: 1000px;
+}
+
+#menu svg{
+  width: 40px;
+}
