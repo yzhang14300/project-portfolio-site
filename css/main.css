@@ -2,3 +2,33 @@
   #border-style: solid;
   #border-width: thin;
 }
+li {
+    list-style-type: none;
+}
+
+.menu_hambuger{
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .menu_hambuger{
+    display: block;
+    width: 50px;
+    fill: grey;
+  }
+
+  .menu_bar {
+    z-index: 100;
+    background-color: #fff;
+    width: 200px;
+    position: absolute;
+    -webkit-transform: translate(-200px, 0);
+    transform: translate(-200px, 0);
+  }
+
+  .menu_bar.open {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+
+}
