@@ -6,9 +6,9 @@
     <title>This is a personal website!</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/bootstrap-theme.min.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
     <script src="js/jquery-1.12.4.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <link href="css/main.css" rel="stylesheet">
   </head>
   <body>
     <!-- Modal -->
@@ -18,9 +18,9 @@
                 <div class="modal-header">
                     <h4 class="modal-title" id="myModalLabel">Linking Colored Ball!s</h4>
                 </div>
-                <div class="modal-body">
-                    <img class="img-responsive" src="https://placekitten.com/500/500" alt="project1 picture">
-                    This is a linking color-ball game, Coming Soon!
+                <div class="modal-body text-center">
+                    <img width="50%" src="img/game-icon2.svg" alt="1st project picture" data-toggle="modal" data-target="#project1" >
+                    <p> This is a linking color-ball game, Coming Soon! </p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -80,28 +80,26 @@
     <!-- This is the main body -->
     <div class="container">
       <div class="row">
-        <div class="col-xs-4 col-xs-offset-4 col-sm-6 col-sm-offset-0 text-center">
-          <img class="img-responsive" src="https://placekitten.com/150/150" alt="Website logo">
+        <div class="col-xs-6 col-sm-3">
+          <img class="logo" src="img/logo-octopus.svg" alt="Website logo">
         </div>
-        <div class="col-xs-12 col-sm-6 text-center">
-          <h1>Welcome! I am the title!</h1>
-          <h3>You are viewing Yu's homepage!</h3>
+        <div class="col-xs-6 text-right">
+          <nav id="menu">
+            <img  class="menu-hambuger" src="img/hamburger-icon.svg">
+          </nav>
         </div>
-        <div class="col-xs-12">
-            <hr></hr>
+        <div class="col-xs-12 col-sm-9 text-right logo-text">
+          <h1>Welcome!</h1>
+          <h3>Yu's homepage!</h3>
         </div>
       </div>
 
-
-        <nav id="menu" class="menu_hambuger">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path d="M2 6h20v3H2zm0 5h20v3H2zm0 5h20v3H2z"/>
-          </svg>
-        </nav>
-
-      <nav id="drawer" class="row menu_bar">
+      <nav id="drawer" class="row menu-bar">
+        <div class="col-xs-12">
+            <hr></hr>
+        </div>
         <ul class="row text-center">
-          <li class="col-sm-3"><a href="#" data-toggle="modal" data-target="#resume">Resume</a></li>
+          <li class="col-sm-3"><a href="#" data-toggle="modal" data-target="#resume">Intro</a></li>
           <li class="col-sm-3"><a href="#">Hobbies</a></li>
           <li class="col-sm-3"><a href="https://www.linkedin.com/in/yu-zhang-4b96a23b" target="_blank">MyLinkedIn</a></li>
           <li class="col-sm-3"><a href="http://agtgeo.com/" target="_blank">MyCompany</a></li>
@@ -112,29 +110,26 @@
             <hr></hr>
         </div>
         <div class="col-md-12">
-            <img class="img-responsive" src="https://placekitten.com/1200/400" alt="Main picture">
+            <img class="img-responsive" width="100%" src="img/main-image.jpg" alt="Main picture">
         </div>
       </div>
       <div class="row">
-        <div class="col=md-12">
-            <h2>Main projects!</h2>
+        <div class="col=md-12 text-center">
+            <h2>Have Fun!</h2>
         </div>
       </div>
       <div class="row text-center">
         <div class="col-xs-12 col-sm-6 col-md-4">
-          <img class="img-responsive" src="https://placekitten.com/500/500" alt="1st project picture" data-toggle="modal" data-target="#project1" >
-          <h4>P1</h4>
-          <p><a href="https://xxx//">https://xxx//</a></p>
+          <img class="icon"  src="img/game-icon2.svg" alt="a game icon" data-toggle="modal" data-target="#project1" >
+          <h4 class="icon-text">Wanna play a game?</h4>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-4">
-          <img class="img-responsive" src="https://placekitten.com/500/500" alt="2st project picture" data-toggle="modal" data-target="#project2" >
-          <h4>P2</h4>
-          <p><a href="https://xxx//">https://xxx//</a></p>
+          <img class="icon" src="img/video-icon.svg" alt="a video icon" data-toggle="modal" data-target="#project2" >
+          <h4 class="icon-text">See my awesome videos</h4>
         </div>
         <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-0">
-          <img class="img-responsive" src="https://placekitten.com/500/500" alt="3st project picture" data-toggle="modal" data-target="#project3" >
-          <h4>P3</h4>
-          <p><a href="https://xxx//">https://xxx//</a></p>
+          <img class="icon" src="img/resume-icon.svg"alt="a resume icon" data-toggle="modal" data-target="#project3" >
+          <h4 class="icon-text">My Resume</h4>
         </div>
       </div>
     </div>
@@ -144,7 +139,7 @@
     <script>
       var menu = document.querySelector('#menu');
       var main = document.querySelector('body');
-      var drawer = document.querySelector('.menu_bar');
+      var drawer = document.querySelector('.menu-bar');
 
       menu.addEventListener('click', function(e) {
         drawer.classList.toggle('open');
@@ -155,6 +150,6 @@
       });
     </script>
 
-
+    <div class="text-right">Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
   </body>
 </html>
