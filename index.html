@@ -126,9 +126,11 @@
         <div class="col-md-12">
             <hr></hr>
         </div>
-        <div class="col-md-12">
-            <img class="img-responsive" width="100%" src="img/main-image.jpg" alt="Main picture">
-        </div>
+        <picture class="col-md-12">
+            <source srcset="img/main-image-large-1x.jpg" media="(min-width: 768px)">
+            <source srcset="img/main-image-small.jpg" media="(max-width: 768px)">
+            <img class="img-responsive" width="100%" src="img/main-image-large-2x.jpg" alt="Delicious Dishses">
+        </picture>
       </div>
       <div class="row">
         <div class="col=md-12 text-center">
