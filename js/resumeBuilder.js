@@ -27,34 +27,57 @@ var HTMLwelcomeMsg = '<span class="welcome-message">%data%</span>';
 var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills" class="flex-box"></ul>';
 var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
 
-var HTMLworkStart = '<div class="work-entry"></div>';
-var HTMLworkEmployer = '<a href="#">%data%';
+var HTMLworkStart = '<div class="work-entry col-xs-12"></div>';
+var HTMLworkEmployer = '<a class="col-xs-12 col-sm-9" href="%url%" target="_blank">%data%';
 var HTMLworkTitle = ' - %data%</a>';
-var HTMLworkDates = '<div class="date-text">%data%</div>';
-var HTMLworkLocation = '<div class="location-text">%data%</div>';
-var HTMLworkDescription = '<p><br>%data%</p>';
-
-var HTMLprojectStart = '<div class="project-entry"></div>';
-var HTMLprojectTitle = '<a href="#">%data%</a>';
-var HTMLprojectDates = '<div class="date-text">%data%</div>';
-var HTMLprojectDescription = '<p><br>%data%</p>';
-var HTMLprojectImage = '<img src="%data%">';
+var HTMLworkDates = '<div class="date-text col-xs-12 col-sm-3">%data%</div>';
+var HTMLworkLocation = '<div class="location-text col-xs-12">%data%</div>';
+var HTMLworkDescription = '<div class="col-xs-12"><em>%data%</em></div>';
 
 var HTMLschoolStart = '<div class="education-entry col-xs-12"></div>';
-var HTMLschoolName = '<a class="col-xs-12 col-sm-9" href="%url%">%data%';
+var HTMLschoolName = '<a class="col-xs-12 col-sm-9" href="%url%" target="_blank">%data%';
 var HTMLschoolDegree = ' -- %data%</a>';
 var HTMLschoolDates = '<div class="date-text col-xs-12 col-sm-3">%data%</div>';
 var HTMLschoolLocation = '<div class="location-text col-xs-12">%data%</div>';
 var HTMLschoolMajor = '<div class="col-xs-12"><em>Major: %data%</em>';
 
 var HTMLonlineClasses = '<h3 class="col-xs-12">Online Classes</h3>';
-var HTMLonlineTitle = '<a class="col-xs-12 col-sm-9" href="%url%">%data%';
+var HTMLonlineTitle = '<a class="col-xs-12 col-sm-9" href="%url%" target="_blank">%data%';
 var HTMLonlineSchool = ' - %data%</a>';
 var HTMLonlineDates = '<div class="date-text col-xs-12 col-sm-3">%data%</div>';
-var HTMLonlineURL = '<a class="col-xs-12" href="%url%">%data%</a>';
+var HTMLonlineURL = '<a class="col-xs-12" href="%url%" target="_blank">%data%</a>';
 
 var internationalizeButton = '<button>Internationalize</button>';
 var googleMap = '<div id="map"></div>';
+
+$("#mapDiv").append(googleMap);
+
+var HTMLprojectStart = '<div class="project-entry col-xs-12"></div>';
+var HTMLprojectTitle = '<div class="col-xs-12">%data%</div>';
+var HTMLprojectDates = '<div class="date-text col-xs-12">%data%</div>';
+var HTMLprojectDescription = '<div class="col-xs-12">%data%</div>';
+var HTMLprojectImage = '<img class="col-xs-12 col-sm-6 col-md-4 img-responsive" src="%data%">';
+var projects = {
+  jobs: [{
+    title: "Kirckoff Time/Depth Migration",
+    date: "2013-now",
+    description: "This is a ",
+    images: ["img/kdmig.jpg","img/ktmig.jpg"]
+  }],
+  display: function(){
+    for(i=0; i<this.jobs.length; i++){
+      var tmp=HTMLprojectStart+
+        HTMLprojectTitle.replace("%data%", this.jobs[i].title)+
+        HTMLprojectDates.replace("%data%", this.jobs[i].date)+
+        HTMLprojectDescription.replace("%data%", this.jobs[i].description);
+      for(j=0; j<this.jobs[i].images.length; j++){
+        tmp+=HTMLprojectImage.replace("%data%", this.jobs[i].images[j]);
+      }
+      $("#projects").append(tmp);
+    }
+  }
+};
+projects.display();
 
 var bio = {
   name: "Yu Zhang",
@@ -67,26 +90,54 @@ var bio = {
     location: "Houston, TX"
   },
   welcomeMessage: "Welcome to Yu's resume page!",
-  skills: ["C/C++","CUDA","JavaScript/CSS/HTML"],
   biopic: "img/biopic.jpg",
+  skills: ["C/C++","CUDA","JavaScript","HTML/CSS","MPI/OMP","Linux","TorqueBPS"],
   display: function(){
-
-    var HTMLheaderName = '<h1 id="name">%data%</h1>';
-    var HTMLheaderRole = '<span>%data%</span><hr>';
-
-    var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
-    var HTMLmobile = '<li class="flex-item"><span class="orange-text">mobile</span><span class="white-text">%data%</span></li>';
-    var HTMLemail = '<li class="flex-item"><span class="orange-text">email</span><span class="white-text">%data%</span></li>';
-    var HTMLtwitter = '<li class="flex-item"><span class="orange-text">twitter</span><span class="white-text">%data%</span></li>';
-    var HTMLgithub = '<li class="flex-item"><span class="orange-text">github</span><span class="white-text">%data%</span></li>';
-    var HTMLblog = '<li class="flex-item"><span class="orange-text">blog</span><span class="white-text">%data%</span></li>';
-    var HTMLlocation = '<li class="flex-item"><span class="orange-text">location</span><span class="white-text">%data%</span></li>';
-
-    var HTMLbioPic = '<img src="%data%" class="biopic">';
-    var HTMLwelcomeMsg = '<span class="welcome-message">%data%</span>';
-    
+      $("#header").prepend(
+        HTMLheaderName.replace("%data%", this.name)+
+        HTMLheaderRole.replace("%data%", this.role)
+      );
+      var tmp=HTMLmobile.replace("%data%", this.contacts.mobile)+
+        HTMLemail.replace("%data%", this.contacts.email)+
+        HTMLtwitter.replace("%data%", this.contacts.twitter)+
+        HTMLgithub.replace("%data%", this.contacts.github)+
+        HTMLlocation.replace("%data%", this.contacts.location);
+      $("#topContacts").append( tmp );
+      $("#footerContacts").append( tmp );
+      tmp=HTMLbioPic.replace("%data%", this.biopic)+
+        //HTMLwelcomeMsg.replace("%data%", this.welcomeMessage)+
+        HTMLskillsStart;
+      for(i=0; i<this.skills.length; i++){
+        tmp+=HTMLskills.replace("%data%", this.skills[i]);
+      }
+      $("#header").append(tmp);
   }
 };
+bio.display();
+
+var work = {
+  jobs: [{
+    employer: "Advanced Geophysical Tech",
+    title: "Application Developer",
+    location: "Houston, TX",
+    date: "2013-now",
+    description: "Full-time Job",
+    url: "http://agtgeo.com"
+  }],
+  display: function(){
+    for(i=0; i<this.jobs.length; i++){
+      $("#workExperience").append(
+        HTMLworkStart+
+        HTMLworkEmployer.replace("%data%", this.jobs[i].employer).replace("%url%",this.jobs[i].url)+
+        HTMLworkTitle.replace("%data%", this.jobs[i].title)+
+        HTMLworkDates.replace("%data%", this.jobs[i].date)+
+        HTMLworkLocation.replace("%data%", this.jobs[i].location)+
+        HTMLworkDescription.replace("%data%", this.jobs[i].description)
+      );
+    }
+  }
+};
+work.display();
 
 var education = {
   schools: [{
@@ -106,7 +157,7 @@ var education = {
   },{
     name: "Rice University",
     location: "Houston, TX, US",
-    degree: "M.S.",
+    degree: "part-time M.S.",
     majors: "Geophysics",
     dates: "2016-now",
     url: "http://www.rice.edu"
@@ -323,11 +374,16 @@ Uncomment the code below when you're ready to implement a Google Map!
 */
 
 // Calls the initializeMap() function when the page loads
-//window.addEventListener('load', initializeMap);
+window.addEventListener('load', initializeMap);
 
 // Vanilla JS way to listen for resizing of the window
 // and adjust map bounds
-//window.addEventListener('resize', function(e) {
+window.addEventListener('resize', function(e) {
   //Make sure the map bounds get updated on page resize
-//  map.fitBounds(mapBounds);
-//});
+  map.fitBounds(mapBounds);
+});
+
+$("#resume").on("shown.bs.modal", function () {
+    google.maps.event.trigger(map, "resize");
+    map.fitBounds(mapBounds);
+});
