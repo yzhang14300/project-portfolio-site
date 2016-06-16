@@ -10,46 +10,9 @@ Cameron Pittman
 These are HTML strings. As part of the course, you'll be using JavaScript functions
 replace the %data% placeholder text you see in them.
 */
-var HTMLheaderName = '<h1 id="name">%data%</h1>';
-var HTMLheaderRole = '<span>%data%</span><hr>';
-
-var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
-var HTMLmobile = '<li class="flex-item"><span class="orange-text">mobile</span><span class="white-text">%data%</span></li>';
-var HTMLemail = '<li class="flex-item"><span class="orange-text">email</span><span class="white-text">%data%</span></li>';
-var HTMLtwitter = '<li class="flex-item"><span class="orange-text">twitter</span><span class="white-text">%data%</span></li>';
-var HTMLgithub = '<li class="flex-item"><span class="orange-text">github</span><span class="white-text">%data%</span></li>';
-var HTMLblog = '<li class="flex-item"><span class="orange-text">blog</span><span class="white-text">%data%</span></li>';
-var HTMLlocation = '<li class="flex-item"><span class="orange-text">location</span><span class="white-text">%data%</span></li>';
-
-var HTMLbioPic = '<img src="%data%" class="biopic">';
-var HTMLwelcomeMsg = '<span class="welcome-message">%data%</span>';
-
-var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills" class="flex-box"></ul>';
-var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
-
-var HTMLworkStart = '<div class="work-entry col-xs-12"></div>';
-var HTMLworkEmployer = '<a class="col-xs-12 col-sm-9" href="%url%" target="_blank">%data%';
-var HTMLworkTitle = ' - %data%</a>';
-var HTMLworkDates = '<div class="date-text col-xs-12 col-sm-3">%data%</div>';
-var HTMLworkLocation = '<div class="location-text col-xs-12">%data%</div>';
-var HTMLworkDescription = '<div class="col-xs-12"><em>%data%</em></div>';
-
-var HTMLschoolStart = '<div class="education-entry col-xs-12"></div>';
-var HTMLschoolName = '<a class="col-xs-12 col-sm-9" href="%url%" target="_blank">%data%';
-var HTMLschoolDegree = ' -- %data%</a>';
-var HTMLschoolDates = '<div class="date-text col-xs-12 col-sm-3">%data%</div>';
-var HTMLschoolLocation = '<div class="location-text col-xs-12">%data%</div>';
-var HTMLschoolMajor = '<div class="col-xs-12"><em>Major: %data%</em>';
-
-var HTMLonlineClasses = '<h3 class="col-xs-12">Online Classes</h3>';
-var HTMLonlineTitle = '<a class="col-xs-12 col-sm-9" href="%url%" target="_blank">%data%';
-var HTMLonlineSchool = ' - %data%</a>';
-var HTMLonlineDates = '<div class="date-text col-xs-12 col-sm-3">%data%</div>';
-var HTMLonlineURL = '<a class="col-xs-12" href="%url%" target="_blank">%data%</a>';
 
 var internationalizeButton = '<button>Internationalize</button>';
 var googleMap = '<div id="map"></div>';
-
 $("#mapDiv").append(googleMap);
 
 var HTMLprojectStart = '<div class="project-entry col-xs-12"></div>';
@@ -59,7 +22,7 @@ var HTMLprojectDescription = '<div class="col-xs-12">%data%</div>';
 var HTMLprojectImage = '<img class="col-xs-12 col-sm-6 col-md-4 img-responsive" src="%data%">';
 var projects = {
   jobs: [{
-    title: "Kirckoff Time/Depth Migration",
+    title: "Kirchhoff Time/Depth Migration",
     date: "2013-now",
     description: "This is a ",
     images: ["img/kdmig.jpg","img/ktmig.jpg"]
@@ -79,6 +42,19 @@ var projects = {
 };
 projects.display();
 
+var HTMLheaderName = '<h1 id="name">%data%</h1>';
+var HTMLheaderRole = '<span id="role">%data%</span><hr>';
+var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
+var HTMLmobile = '<li class="flex-item"><span class="orange-text">mobile</span><span class="white-text">%data%</span></li>';
+var HTMLemail = '<li class="flex-item"><span class="orange-text">email</span><span class="white-text">%data%</span></li>';
+var HTMLtwitter = '<li class="flex-item"><span class="orange-text">twitter</span><span class="white-text">%data%</span></li>';
+var HTMLgithub = '<li class="flex-item"><span class="orange-text">github</span><span class="white-text">%data%</span></li>';
+var HTMLblog = '<li class="flex-item"><span class="orange-text">blog</span><span class="white-text">%data%</span></li>';
+var HTMLlocation = '<li class="flex-item"><span class="orange-text">location</span><span class="white-text">%data%</span></li>';
+var HTMLbioPic = '<img src="%data%" class="biopic">';
+var HTMLwelcomeMsg = '<span class="welcome-message">%data%</span>';
+var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills" class=""></ul>';
+var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
 var bio = {
   name: "Yu Zhang",
   role: "Application Developer",
@@ -86,7 +62,7 @@ var bio = {
     mobile: "814-777-4471",
     email: "panjinzy@hotmail.com",
     github: "yzhang14300",
-    twitter: "none",
+    //twitter: "none",
     location: "Houston, TX"
   },
   welcomeMessage: "Welcome to Yu's resume page!",
@@ -99,7 +75,7 @@ var bio = {
       );
       var tmp=HTMLmobile.replace("%data%", this.contacts.mobile)+
         HTMLemail.replace("%data%", this.contacts.email)+
-        HTMLtwitter.replace("%data%", this.contacts.twitter)+
+        //HTMLtwitter.replace("%data%", this.contacts.twitter)+
         HTMLgithub.replace("%data%", this.contacts.github)+
         HTMLlocation.replace("%data%", this.contacts.location);
       $("#topContacts").append( tmp );
@@ -107,14 +83,23 @@ var bio = {
       tmp=HTMLbioPic.replace("%data%", this.biopic)+
         //HTMLwelcomeMsg.replace("%data%", this.welcomeMessage)+
         HTMLskillsStart;
+      $("#header").append(tmp);
+      tmp="";
       for(i=0; i<this.skills.length; i++){
         tmp+=HTMLskills.replace("%data%", this.skills[i]);
       }
-      $("#header").append(tmp);
+      $("#skills").append(tmp);
   }
 };
 bio.display();
 
+
+var HTMLworkStart = '<div class="work-entry col-xs-12"></div>';
+var HTMLworkEmployer = '<a class="col-xs-12 col-sm-9" href="%url%" target="_blank">%data%';
+var HTMLworkTitle = ' - %data%</a>';
+var HTMLworkDates = '<div class="date-text col-xs-12 col-sm-3">%data%</div>';
+var HTMLworkLocation = '<div class="location-text col-xs-12">%data%</div>';
+var HTMLworkDescription = '<div class="col-xs-12"><em>%data%</em></div>';
 var work = {
   jobs: [{
     employer: "Advanced Geophysical Tech",
@@ -139,6 +124,17 @@ var work = {
 };
 work.display();
 
+var HTMLschoolStart = '<div class="education-entry col-xs-12"></div>';
+var HTMLschoolName = '<a class="col-xs-12 col-sm-9" href="%url%" target="_blank">%data%';
+var HTMLschoolDegree = ' -- %data%</a>';
+var HTMLschoolDates = '<div class="date-text col-xs-12 col-sm-3">%data%</div>';
+var HTMLschoolLocation = '<div class="location-text col-xs-12">%data%</div>';
+var HTMLschoolMajor = '<div class="col-xs-12"><em>Major: %data%</em>';
+var HTMLonlineClasses = '<h3 class="col-xs-12">Online Classes</h3>';
+var HTMLonlineTitle = '<a class="col-xs-12 col-sm-9" href="%url%" target="_blank">%data%';
+var HTMLonlineSchool = ' - %data%</a>';
+var HTMLonlineDates = '<div class="date-text col-xs-12 col-sm-3">%data%</div>';
+var HTMLonlineURL = '<a class="col-xs-12" href="%url%" target="_blank">%data%</a>';
 var education = {
   schools: [{
     name: "Tongji University",

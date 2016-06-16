@@ -96,38 +96,33 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-6 col-sm-3">
-          <img class="logo" src="img/logo-octopus.svg" alt="Website logo">
+          <img id="logo" src="img/logo-octopus.svg" alt="Website logo">
         </div>
-        <div class="col-xs-6 text-right">
-          <nav id="menu">
-            <img  class="menu-hambuger" src="img/hamburger-icon.svg">
-          </nav>
+        <div class="col-xs-6 text-right" id="menu">
+          <img id="menu-hambuger" src="img/hamburger-icon.svg">
         </div>
-        <div class="col-xs-12 col-sm-9 text-right logo-text">
+        <div id="title-text" class="col-xs-12 col-sm-9 text-right">
           <h1>Welcome!</h1>
           <h3>Yu's homepage!</h3>
         </div>
       </div>
 
       <nav id="drawer" class="row menu-bar">
-        <div class="col-xs-12">
-            <hr></hr>
-        </div>
-        <ul class="row text-center">
+        <div class="col-xs-12"><hr></div>
+        <ul class="col-xs-12 text-center">
           <li class="col-sm-3"><a href="#" data-toggle="modal" data-target="#intro">Intro</a></li>
           <li class="col-sm-3"><a href="#">Hobbies</a></li>
           <li class="col-sm-3"><a href="https://www.linkedin.com/in/yu-zhang-4b96a23b" target="_blank">MyLinkedIn</a></li>
           <li class="col-sm-3"><a href="http://agtgeo.com/" target="_blank">MyCompany</a></li>
         </ul>
+        <div class="col-xs-12"><hr></div>
       </nav>
+
       <div class="row">
-        <div class="col-md-12">
-            <hr></hr>
-        </div>
-        <picture class="col-md-12">
-            <source srcset="img/main-image-large-1x.jpg" media="(min-width: 768px)">
-            <source srcset="img/main-image-small.jpg" media="(max-width: 768px)">
-            <img class="img-responsive" width="100%" src="img/main-image-large-2x.jpg" alt="Delicious Dishses">
+        <picture class="col-xs-12">
+          <source class="pic-source" srcset="img/main-image-large-1x.jpg" media="(min-width: 768px)">
+          <source class="pic-source"srcset="img/main-image-small.jpg" media="(max-width: 768px)">
+          <img class="img-responsive" width="100%" src="img/main-image-large-2x.jpg" alt="Delicious Dishses">
         </picture>
       </div>
       <div class="row">
