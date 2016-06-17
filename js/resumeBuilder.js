@@ -22,10 +22,29 @@ var HTMLprojectDescription = '<div class="col-xs-12">%data%</div>';
 var HTMLprojectImage = '<img class="col-xs-12 col-sm-6 col-md-4 img-responsive" src="%data%">';
 var projects = {
   jobs: [{
-    title: "Kirchhoff Time/Depth Migration",
+    title: "<a href=https://en.wikipedia.org/wiki/Seismic_migration target=_blank>Kirchhoff Time/Depth Migration</a>",
     date: "2013-now",
-    description: "This is a ",
+    description: "Seismic Migration is the process by which seismic events are \
+                  geometrically re-located in either space or time to the location \
+                  the event occurred in the subsurface. My migration code is implemented \
+                  with CUDA to fully gain the benefits of GPU.",
     images: ["img/kdmig.jpg","img/ktmig.jpg"]
+  },{
+    title: "Ray-tracing Time Table",
+    date: "2014",
+    description: "Time table is used by Kirchhoff Depth Migration. It simulates \
+                  propagation of the seismic wave after the shot. You need to \
+                  use points, edges and triangles to track the wave-front, record \
+                  the travel time of the rays.",
+    images: ["img/raytracing.png","img/raytracing2.png","img/raytracing3.png"]
+  },{
+    title: "3D Hexahedron Variable-mesh",
+    date: "2015",
+    description: "My company's seimic forward-modeling code is using finite \
+                  element method. This project is to generate usable meshes to \
+                  support the FEM. The hard part is how to change the meshes to \
+                  accommodate the floating surface.",
+    images: ["img/mesh.png","img/mesh2.png"]
   }],
   display: function(){
     for(i=0; i<this.jobs.length; i++){
@@ -33,6 +52,7 @@ var projects = {
         HTMLprojectTitle.replace("%data%", this.jobs[i].title)+
         HTMLprojectDates.replace("%data%", this.jobs[i].date)+
         HTMLprojectDescription.replace("%data%", this.jobs[i].description);
+  console.log(HTMLprojectDescription.replace("%data%", this.jobs[i].description));
       for(j=0; j<this.jobs[i].images.length; j++){
         tmp+=HTMLprojectImage.replace("%data%", this.jobs[i].images[j]);
       }
@@ -67,7 +87,7 @@ var bio = {
   },
   welcomeMessage: "Welcome to Yu's resume page!",
   biopic: "img/biopic.jpg",
-  skills: ["C/C++","CUDA","JavaScript","HTML/CSS","MPI/OMP","Linux","TorqueBPS"],
+  skills: ["C/C++/Java","CUDA/MPI/OMP","Git/SVN","JavaScript/HTML/CSS","Centos/RedHat","TorqueBPS"],
   display: function(){
       $("#header").prepend(
         HTMLheaderName.replace("%data%", this.name)+
@@ -93,13 +113,13 @@ var bio = {
 };
 bio.display();
 
-
 var HTMLworkStart = '<div class="work-entry col-xs-12"></div>';
 var HTMLworkEmployer = '<a class="col-xs-12 col-sm-9" href="%url%" target="_blank">%data%';
 var HTMLworkTitle = ' - %data%</a>';
 var HTMLworkDates = '<div class="date-text col-xs-12 col-sm-3">%data%</div>';
 var HTMLworkLocation = '<div class="location-text col-xs-12">%data%</div>';
 var HTMLworkDescription = '<div class="col-xs-12"><em>%data%</em></div>';
+var HTMLduty = '<li><em>■ %data%</em></li>';
 var work = {
   jobs: [{
     employer: "Advanced Geophysical Tech",
@@ -107,18 +127,32 @@ var work = {
     location: "Houston, TX",
     date: "2013-now",
     description: "Full-time Job",
-    url: "http://agtgeo.com"
+    url: "http://agtgeo.com",
+    duty: ["Developed Kirchhoff prestack depth/time migration(PSDM/PSTM) code for GPU environment with CUDA",
+           "Achieved cross-gpus and cross-nodes parallel in PSDM/PSTM code with MPI and OMP libraries",
+           "Upgraded PSDM/PSTM code with the state-of-art technology like Q-compensation",
+           "Built the travel-time table code with both Ray-tracing method and Eikonal equation for isotropic earth model",
+           "Programmed a 2D quadrangle/3D hexahedron variable-mesh generating code to support company’s seismic forward-modeling technology",
+           "Designed the pipeline class under Linux for company’s seismic processing system",
+           "Reduced the memory requirement of the 4D interpolation code to one-tenth",
+           "Conducted the internal data quality control for the SEG Advanced Modeling project",
+           "Manage and maintain company’s GPU cluster(100+ nodes), operating system(Centos), network, SVN and job scheduling system(OpenPBS)"
+          ]
   }],
   display: function(){
     for(i=0; i<this.jobs.length; i++){
-      $("#workExperience").append(
-        HTMLworkStart+
-        HTMLworkEmployer.replace("%data%", this.jobs[i].employer).replace("%url%",this.jobs[i].url)+
-        HTMLworkTitle.replace("%data%", this.jobs[i].title)+
-        HTMLworkDates.replace("%data%", this.jobs[i].date)+
-        HTMLworkLocation.replace("%data%", this.jobs[i].location)+
-        HTMLworkDescription.replace("%data%", this.jobs[i].description)
-      );
+      var tmp=HTMLworkStart+
+              HTMLworkEmployer.replace("%data%", this.jobs[i].employer).replace("%url%",this.jobs[i].url)+
+              HTMLworkTitle.replace("%data%", this.jobs[i].title)+
+              HTMLworkDates.replace("%data%", this.jobs[i].date)+
+              HTMLworkLocation.replace("%data%", this.jobs[i].location)+
+              HTMLworkDescription.replace("%data%", this.jobs[i].description)+
+              '<ul class="col-xs-12 duty_list">';
+      for(j=0; j<this.jobs[i].duty.length; j++){
+        tmp+=HTMLduty.replace("%data%", this.jobs[i].duty[j]);
+      }
+      tmp+="</ul>";
+      $("#workExperience").append(tmp);
     }
   }
 };

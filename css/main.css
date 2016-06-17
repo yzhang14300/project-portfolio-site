@@ -1,6 +1,6 @@
 * {
-  border-style: solid;
-  border-width: thin;
+  #border-style: solid;
+  #border-width: thin;
 }
 
 .pic-source {
@@ -209,7 +209,6 @@ h5) {
   background-color: #4a4a4a;
 }
 
-/* TODO: Replace with image later */
 #header {
   background-color: #484848;
 }
