@@ -1,0 +1,33 @@
+*{
+  #border-style: solid;
+  #border-width:thin;
+}
+body {
+    text-align: center;
+}
+fieldset{
+  display: inline-block;
+}
+
+#scoreboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#scoreboard img {
+  width: 50px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#resetdialog {
+  margin-top:200px;
+  width: 400px;
+  height: 200px;
+  text-align: center;
+}
+
+#resetmessage {
+  margin-top:50px;
+  font-size: 40px;
+}

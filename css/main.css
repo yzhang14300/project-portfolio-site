@@ -2,6 +2,12 @@
   #border-style: solid;
   #border-width: thin;
 }
+#videoicon {
+  cursor: pointer;
+}
+#resumeicon {
+  cursor: pointer;
+}
 
 .pic-source {
   display: none;

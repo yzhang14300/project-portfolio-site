@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Effective JavaScript: Frogger</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+  <dialog id="chooserole">
+    <img id="role1" src='images/char-boy.png'>
+    <img id="role2" src='images/char-cat-girl.png'>
+    <img id="role3" src='images/char-horn-girl.png'>
+    <img id="role4" src='images/char-pink-girl.png'>
+    <img id="role5" src='images/char-princess-girl.png'>
+  </dialog>
+  <div>
+    <form id="resetform" action="">
+      <fieldset>
+        <label>PlayRow: </label><input id="playrow" type="text" name="fname" value="7">
+        <label>PlayCol: </label><input id="playcol" type="text" name="lname" value="7">
+        <input id="changegame" type="button" value="Reset">
+      </fieldset>
+    </form>
+  </div>
+  <div id="mainpart">
+    <div id="scoreboard">
+      <div>
+        <img src="images/Key.png">
+        <div id="score">0</div>
+      </div>
+      <div>
+        <img src="images/Gem Blue.png">
+        <div id="blueGem">0</div>
+      </div>
+      <div>
+        <img src="images/Gem Green.png">
+        <div id="greenGem">0</div>
+      </div>
+      <div>
+        <img src="images/Gem Orange.png">
+        <div id="orangeGem">0</div>
+      </div>
+      <div>
+        <img src="images/Star.png">
+        <div id="star">0</div>
+      </div>
+      <div>
+        <img src="images/Heart.png">
+        <div id="heart">3</div>
+      </div>
+      <div>
+        <img id="playerpic" src="images/char-boy.png">
+        <div><button id="changerole" type="button">ChangeRole</button></div>
+      </div>
+    </div>
+    <dialog id="resetdialog">
+      <p id="resetmessage"></p>
+    </dialog>
+    <canvas id="canvas"></canvas>
+  </div>
+
+  <script src="js/resources.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/engine.js"></script>
+</body>
+</html>
