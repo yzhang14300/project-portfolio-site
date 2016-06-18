@@ -14,19 +14,37 @@
     <img id="role4" src='images/char-pink-girl.png'>
     <img id="role5" src='images/char-princess-girl.png'>
   </dialog>
-  <div>
-    <form id="resetform" action="">
-      <fieldset>
-        <label>PlayRow: </label><input id="playrow" type="text" name="fname" value="7">
-        <label>PlayCol: </label><input id="playcol" type="text" name="lname" value="7">
-        <input id="changegame" type="button" value="Reset">
-      </fieldset>
-    </form>
+  <dialog id="ruledialog">
+    <p>Use ↑↓←→ of your keyboard to contorl your character. You have three
+       initial hp, a heart<img src="images/Heart.png" width="15px"> will spawn on the screen every 10s. Heart will increase your hp by 1,
+       touch a bug<img src="images/enemy-bug.png" width="15px"> will decrease your hp by 3.
+       If you hp reach zero, game will reset. When you reach
+        the river, your score will increase 1, two scores will spawn a random gem
+        <img src="images/Gem Blue.png" width="15px">
+        <img src="images/Gem Green.png" width="15px">
+        <img src="images/Gem Orange.png" width="15px">. When you gain all
+      three colors of gems, a star<img src="images/Star.png" width="15px"> will spawn.
+      Each star grant you the power to kill a bug. When all
+      the bugs are killed, a key<img src="images/Key.png" width="15px"> will spawn on the scree.
+      Take the key to win the game. Have fun!</p>
+  </dialog>
+  <div id="headbuttons">
+    <div>
+      <form id="resetform" action="">
+        <fieldset>
+          <label>PlayRow: </label><input id="playrow" type="text" name="fname" value="7">
+          <label>PlayCol: </label><input id="playcol" type="text" name="lname" value="7">
+          <input id="changegame" type="button" value="Reset">
+          <button id="rulebutton" type="button">GameRule</button>
+          <button id="changerole" type="button">ChangeRole</button>
+        </fieldset>
+      </form>
+    </div>
   </div>
   <div id="mainpart">
     <div id="scoreboard">
       <div>
-        <img src="images/Key.png">
+        <img id="playerpic" src="images/char-boy.png">
         <div id="score">0</div>
       </div>
       <div>
@@ -48,10 +66,6 @@
       <div>
         <img src="images/Heart.png">
         <div id="heart">3</div>
-      </div>
-      <div>
-        <img id="playerpic" src="images/char-boy.png">
-        <div><button id="changerole" type="button">ChangeRole</button></div>
       </div>
     </div>
     <dialog id="resetdialog">

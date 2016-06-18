@@ -344,9 +344,15 @@ $('#changerole').click( function(e){
     e.stopPropagation();
 });
 
+$('#rulebutton').click( function(e){
+    $("#ruledialog").attr("open",true);
+    e.stopPropagation();
+});
+
 $("body").click( function(){
   $("#chooserole").attr("open",false);
   $("#resetdialog").attr("open",false);
+  $("#ruledialog").attr("open",false);
 });
 
 $("#role1").click( function(){

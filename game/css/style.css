@@ -8,12 +8,21 @@ body {
 fieldset{
   display: inline-block;
 }
-
 #scoreboard {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
+#headbuttons {
+  display: flex;
+  justify-content: center;
+}
+#ruledialog {
+  width: 400px;
+  font-size: 20px;
+}
+
 #scoreboard img {
   width: 50px;
   margin-left: 10px;
